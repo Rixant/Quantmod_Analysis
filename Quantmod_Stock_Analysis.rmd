@@ -1,37 +1,21 @@
 ---
-title: "Project 5 - Trading with Quantmod
-Name:
+title: "BU662 - Project 5 - Trading with Quantmod
+Name: Rishant Rokaha
 ---
 
-Project 5 
 
-There two different categories of trading strategies, fundamental analysis and technical analysis.
 
-Fundamental analysts examine earnings, dividends, assets, quality, ratio, new products, research and the like. Technicians employ many methods, tools and techniques as well, one of which is the use of charts. Using charts, technical analysts seek to identify price patterns and market trends in financial markets and attempt to exploit those patterns.
-
-The principles of technical analysis are derived from hundreds of years of financial market data Some aspects of technical analysis began to appear in Amsterdam-based merchant Joseph de la Vega's accounts of the Dutch financial markets in the 17th century. In Asia, technical analysis is said to be a method developed by Homma Munehisa during the early 18th century which evolved into the use of candlestick techniques, and is today a technical analysis charting tool. In the 1920s and 1930s, Richard W. Schabacker published several books which continued the work of Charles Dow and William Peter Hamilton in their books Stock Market Theory and Practice and Technical Market Analysis. In 1948, Robert D. Edwards and John Magee published Technical Analysis of Stock Trends which is widely considered to be one of the seminal works of the discipline. It is exclusively concerned with trend analysis and chart patterns and remains in use to the present. Early technical analysis was almost exclusively the analysis of charts because the processing power of computers was not available for the modern degree of statistical analysis. Charles Dow reportedly originated a form of point and figure chart analysis.
-
-Dow theory is based on the collected writings of Dow Jones co-founder and editor Charles Dow, and inspired the use and development of modern technical analysis at the end of the 19th century. Other pioneers of analysis techniques include Ralph Nelson Elliott, William Delbert Gann and Richard Wyckoff who developed their respective techniques in the early 20th century. More technical tools and theories have been developed and enhanced in recent decades, with an increasing emphasis on computer-assisted techniques using specially designed computer software. 
-(Wickepedia)
-
-The tools we use are R packages quantmod and Quandl.
-
-In this project, you will use these tools to see what would have been best in 2018 to make a profit
-on stocks you have chosen to analyze. Make sure you go throgh this exercise and understand what is
-being done. Use these code chunks and graphs in your analysis of your chosen stocks. 
 
 Project:
 
-1.	Pick 3 common stocks (see list), Bonds (Treasury Bills), currencies or other financial instruments. Check to see what business they are engaged in (i.e. products, services, markets). Compare the side by side (same graph) performance of the stocks since 1/1/2018. 
-2.	In addition, compare your stocks with the fluctuations and returns you could have achieved by investing in the S&P 500 (GSPC), gold (GLD) or Treasury Bills (DTB3).
+1.	Pick 3 common stocks (see list), ETF's, currencies or other financial instruments. Check to see what business they are engaged in (i.e. products, services, markets). Compare the side by side (same graph) performance of the stocks since 1/1/2018. 
+2.	In addition, compare your stocks with the fluctuations and returns you could have achieved by investing in the S&P 500 (GSPC) or gold (GLD).
 3.	Using Quantmod charts and 2-3 of the common stock indicators (see list), determine which would have been most helpful in helping a trader make a profit by using any of the selected indicators.
-4. Use all the Common Indicators described below to analyze your three stocks. (So not use the other indicators. They are there for the curious.) Indicate if you would have earned a profit if you followed the strategy (e.g. buy when undervalued, sell when overvalued for Bollinger bands).
-5. It is a public stock, compare your stock's price-earnings to that of a similar company (e.g. Apple and Microsoft).
 
-Use the code in this file or copy to new code "chunks" or in a separate R script and use to analyze your picks.
+Based upon your indicators when the trades (puts (sell) or calls (buy)) that should have been made to maximize profits.
 
-Make name and date changes where necessary. Submit your analysis in a paper with graphs, etc. to
-explain your analysis.
+Include the coding in "code chunks" or in a separate R script. Explain your trading strategy and time of trade execution. Explain why you did what you did in using the code.
+
 
 
 List of Stocks
@@ -51,39 +35,11 @@ Macy’s (M)
 Wall-Mart  (WMT)
 Federal Express (FDX)
 
-or any other stock on the S&P 500
-https://en.wikipedia.org/wiki/List_of_S%26P_500_companies
-
-
-
 
 
 List of Common Indicators:
 
-Moving averages comparison (SMA) for 20, 50 and 100 trading days.
-
-## The 20-day moving average is the most sensitive to local changes, 
-## and the 200-day moving average the least. 
-## Here, the 200-day moving average indicates an overall bearish trend: 
-## the stock is trending downward over time. 
-##The 20-day moving average is at times bearish and at other times bullish, 
-## where a positive swing is expected. You can also see that the crossing of 
-## moving average lines indicate changes in trend. 
-## These crossings are what we can use as trading signals, 
-## or indications that a financial security is changing direction 
-## and a profitable trade might be made.
-
-addMACD() # 
-
-## One basic MACD strategy is to look at which side of zero the MACD lines are on. 
-## Above zero for a sustained period of time and the trend is likely up; 
-## below zero for a sustained period of time and the trend is likely down. 
-## Potential buy signals occur when the MACD moves above zero, 
-## and potential sell signals when it crosses below zero.
-## Signal line crossovers provide additional buy and sell signals. 
-## A MACD has two lines--a fast line and a slow line. 
-## A buy signal occurs when the fast line crosses through and above the slow line. 
-## A sell signal occurs when the fast line crosses through and below the slow line.
+addMACD()# adds moving average convergence divergence signals to the apple stock price
 
 addBBands() # Adds Bollinger bands to the apple stock price.
 ## A Bollinger Band®, developed by famous technical trader John Bollinger, 
@@ -96,12 +52,14 @@ addCCI() # Add Commodity channel index.
 ## of time. CCI is relatively high when prices are far above their average. 
 ##CCI is relatively low when prices are far below their average. 
 ## In this manner, CCI can be used to identify overbought and oversold levels. 
-addADX() #Add Directional Movement Indicator ## Reading directional signals is easy. When the +DMI is dominant and rising, price direction is up. 
+addADX() #Add Directional Movement Indicator
+## Reading directional signals is easy. When the +DMI is dominant and rising, price direction is up. 
 ## When the -DMI is dominant and rising, price direction is down. But the strength ## of price 
 ## must also be considered. DMI strength ranges from a low of 0 to a high of 100. 
 ## The higher the DMI value, the stronger the prices swing. 
 ## DMI values over 25 mean price is directionally strong. 
 ## DMI values under 25 mean price is directionally weak.
+
 
 addCMF() #Add Chaiken Money Flow
 ## Chaikin believed that buying and selling pressures could be determined by where a period closes 
@@ -109,42 +67,43 @@ addCMF() #Add Chaiken Money Flow
 ## then buying pressure is higher and if the period closes in the lower half of the range, 
 ## then selling pressure is higher. 
 
-For others, see https://en.wikipedia.org/wiki/Technical_analysis
-
-
-
-
 ```{r}
 ## install.packages("quantmod")
 library(quantmod)
+library(Quandl)
+require(TTR)
 ```
 
 
-
-The getSymbols function loads (downloads) historic price data Usage.
-
-## ^GSPC - S&P 500 
-
-Retrieving data for GSPC and putting in an environment named "data".
-
-Printing last ten lines of dataset from data environment.
-
+#Retrieve all the symbols required for the Company stocks and data from 2018 to 2020 
 
 ```{r}
-
-getSymbols("^GSPC", src = "yahoo", from =  as.Date("2018-01-01"), to = as.Date("2018-07-01"))
+getSymbols("^GSPC", src = "yahoo", from =  as.Date("2018-01-01"), to = as.Date("2020-04-30"))
 tail(GSPC,10)
+getSymbols("GLD", src = "yahoo", from =  as.Date("2018-01-01"), to = as.Date("2020-04-30"))
+tail(GLD,10)
+getSymbols("AMZN", src = "yahoo", from =  as.Date("2018-01-01"), to = as.Date("2020-04-30"))
+tail(AMZN,10)
+getSymbols("MSFT", src = "yahoo", from =  as.Date("2017-01-01"), to = as.Date("2020-04-30"))
+tail(MSFT,10)
+getSymbols("IBM", src = "yahoo", from =  as.Date("2017-01-01"), to = as.Date("2020-04-30"))
+tail(IBM,10)
+
 
 ```
 
-Chart series prints candle chart with volume at bottom, for all records in 2018.
 
+# We will create charts for all companies stocks for 2018.
 ```{r}
+chartSeries(AMZN,subset="2018",theme="white")
+chartSeries(MSFT,subset="2018",theme="white")
+chartSeries(IBM,subset="2018",theme="white")
+chartSeries(GLD,subset="2018",theme="white")
 chartSeries(GSPC,subset="2018",theme="white")
 ```
 
 
-Design (theme) changes to make more visible 
+#Here We designed our own theme so that our graph will be more visible
 ```{r}
 whiteTheme <- chartTheme("white") 
 
@@ -152,113 +111,199 @@ whiteTheme <- chartTheme("white")
 names(whiteTheme)
 
 whiteTheme$bg.col <- "white"
-whiteTheme$dn.col <- "pink"
-whiteTheme$up.col <- "lightgreen"
+whiteTheme$dn.col <- "red"
+whiteTheme$up.col <- "green"
 whiteTheme$border <- "lightgray"
-x <- chartSeries(GSPC,subset="last 3 months",theme=whiteTheme,TA=NULL) 
-class(x)
+a <- chartSeries(AMZN,subset="last 3 months",theme=whiteTheme,TA=NULL)
+b <- chartSeries(MSFT,subset="last 3 months",theme=whiteTheme,TA=NULL)
+c <- chartSeries(IBM,subset="last 3 months",theme=whiteTheme,TA=NULL)
+d <- chartSeries(GLD,subset="last 3 months",theme=whiteTheme,TA=NULL)
+e <- chartSeries(GSPC,subset="last 3 months",theme=whiteTheme,TA=NULL)
+#class(a)
+#class(b)
+#class(c)
+#class(d)
+#class(e)
 ```
 
-
-Provide title for chart
+#Chart series using name and our own designed theme
 ```{r}
+chartSeries(AMZN["2018"],theme=whiteTheme,name="Amazon")
+chartSeries(MSFT["2018"],theme=whiteTheme,name="Microsoft")
+chartSeries(IBM["2018"],theme=whiteTheme,name="IBM")
+chartSeries(GLD["2018"],theme=whiteTheme,name="Gold")
 chartSeries(GSPC["2018"],theme=whiteTheme,name="S&P 500")
+
 ```
 
 
-Two years - 2017 & whatever available for 2018
+
+#Print out all the monthly returns of 2018 for all companies to compare returns 
 ```{r}
-chartSeries(GSPC["2017/2018"],theme=whiteTheme,name="S&P 500")
+
+returnAMZN<-monthlyReturn(AMZN, subset="2018") 
+returnAMZN
+returnMSFT<-monthlyReturn(MSFT, subset="2018") 
+returnMSFT
+returnIBM<-monthlyReturn(IBM, subset="2018") 
+returnIBM
+returnGLD<-monthlyReturn(GLD, subset="2018") 
+returnGLD
+returnGSPC<-monthlyReturn(GSPC, subset="2018") 
+returnGSPC
 ```
 
-SPY is a S&P 500 ETF (exchange traded fund).
-An ETF is traded on a major stock exchange—like the New York Stock Exchange or Nasdaq.
-It is a basket of stocks, in this case all the individual stocks on the S&P 500 
-
-
-```{r}
-getSymbols("SPY", from="2018-04-01")
-class(SPY)
-head(SPY)
-```
-
-Chart Item together for comparison
+#Create Chart Series for all company stocks
 
 ```{r}
 chart_Series(Cl(GSPC), subset = "2018")
-add_TA(Cl(GOOG), on = 1, col = "blue")
+add_TA(Cl(AMZN), on = 1, col = "blue")
+add_TA(Cl(MSFT), on = NA, col = "red")
+add_TA(Cl(IBM), on = 1, col = "green")
+add_TA(Cl(GLD), on = NA, col = "yellow")
 ```
 
 
-Combine additional securities with normalization
-
-To see relative changes more easily, you can normalise your price series in many ways. This is a typical approach (using a 0 origin is what Google charts does):
-
+# We normalized the data and put all graphs in the same chart to compare side by side
 ```{r}
 normalise_series <- function(xdat) xdat / coredata(xdat)[1]
-getSymbols("GOOG")
-window <- "2018/"
+window <- "2018"
 
 # Define colour of default chart line to chart_Series in mytheme object
 # which is passed to chart_Series:
 mytheme <- chart_theme()
-mytheme$col$line.col <- "darkgreen"
-chart_Series(normalise_series(Cl(GOOG)[window]) - 1, theme = mytheme)
-add_TA(normalise_series(Cl(AAPL)[window]) - 1, on = 1, col = "red", lty = 3)
-add_TA(normalise_series(Cl(GSPC)[window]) - 1, on = 1, col = "blue", lty =2)
-
-add_TA(RSI(Cl(GOOG)), on = NA, col = "darkgreen")
-add_TA(RSI(Cl(AAPL)), on = 2, col = "red", lty = 3)
+mytheme$col$line.col <- "purple"
+chart_Series(normalise_series(Cl(GSPC)[window]) - 1, theme = mytheme)
+add_TA(normalise_series(Cl(AMZN)[window]) - 1, on = 1, col = "blue", lty = 3)
+add_TA(normalise_series(Cl(MSFT)[window]) - 1, on = 1, col = "red", lty = 3)
+add_TA(normalise_series(Cl(IBM)[window]) - 1, on = 1, col = "green", lty =2)
+add_TA(normalise_series(Cl(GLD)[window]) - 1, on = 1, col = "black", lty = 3)
 # Or add RSIs on different subpanels to improve readability of charts:
-add_TA(RSI(Cl(GSPC)), on = NA, col = "blue", lty = 2)
+#add_TA(RSI(Cl(GSPC)), on = 1, col = "purple", lty = 2)
+#add_TA(RSI(Cl(AMZN)), on =1, col = "blue")
+#add_TA(RSI(Cl(MSFT)), on = 1, col = "red", lty = 3)
+
+#add_TA(RSI(Cl(IBM)), on = 1, col = "green", lty = 2)
+#add_TA(RSI(Cl(GLD)), on = 1, col = "black", lty = 2)
 ```
 
-Get Stock Dividends
+#Simple Moving averages comparison (SMA) for 20, 50 and 100 trading days.
 
 ```{r}
-(div <- getDividends("SBUX"))
-```
+candleChart(AMZN,TA="addSMA(n=c(20,50,100))", up.col = "black", dn.col = "red", theme = whiteTheme, subset = "2018")
 
 
-Get Returns (Profit or Loss from beginning of period)
+candleChart(MSFT,TA="addSMA(n=c(20,50,100))", up.col = "black", dn.col = "red", theme = whiteTheme, subset = "2018")
 
-```{r}
 
-# Quick returns - quantmod style
- 
-## getSymbols("SBUX")
-dreturns<-dailyReturn(SBUX) # returns by day
-head(dreturns)
-
-wreturns<-weeklyReturn(SBUX) # returns by week
-summary(wreturns)
-
-mreturns<-monthlyReturn(SBUX) # returns by month, indexed by yearmon
-mreturns
- 
+candleChart(IBM,TA="addSMA(n=c(20,50,100))", up.col = "black", dn.col = "red", theme = whiteTheme, subset = "2018")
 
 ```
 
-
-All Returns summary compared
+#Moving Average Convergence-Divergence (MACD)
+#addMACD() adds moving average convergence divergence signals to the stock price
 
 ```{r}
+macd <- MACD( Cl(AMZN), 20, 26, 9, maType="EMA" ) 
+tail(macd)
+chartSeries(AMZN,TA = "addMACD()", subset="2018",theme =whiteTheme)
 
-# daily,weekly,monthly,quarterly, and yearly
-allreturns<-allReturns(SBUX) # note the plural
-summary(allreturns)
+
+macd <- MACD( Cl(MSFT), 12, 26, 9, maType="EMA" ) 
+tail(macd)
+chartSeries(MSFT,TA = "addMACD()", subset="2018",theme=whiteTheme)
+
+
+macd <- MACD( Cl(IBM), 12, 26, 9, maType="EMA" ) 
+tail(macd)
+chartSeries(IBM,TA = "addMACD()", subset="2018",theme=whiteTheme)
+
 ```
 
 
+Bollinger Bands
+#addBBands()  Adds Bollinger bands to the apple stock price.
+## A Bollinger Band®, developed by famous technical trader John Bollinger, 
+## is plotted two standard deviations away from a simple moving average.
+## the closer the prices move to the upper band, the more overbought the market, 
+## and the closer the prices move to the lower band, the more oversold the market
+```{r}
+bAMZN <- BBands(HLC=HLC(AMZN["2018"]), n=20, sd=2)
+tail(bAMZN,10)
+chartSeries(AMZN,TA='addBBands();addBBands(draw="p");addVo()', subset = "2018", theme=whiteTheme)
 
-Get Price Earnings ratio:
+
+bMSFT <- BBands(HLC=HLC(MSFT["2018"]), n=20, sd=2)
+tail(bMSFT,10)
+chartSeries(MSFT,TA='addBBands();addBBands(draw="p");addVo()', subset = "2018", theme=whiteTheme)
+
+
+
+bIBM <- BBands(HLC=HLC(IBM["2018"]), n=20, sd=2)
+tail(bIBM,10)
+chartSeries(IBM,TA='addBBands();addBBands(draw="p");addVo()', subset = "2018", theme = whiteTheme)
+
+``` 
+
+
+Commodity channel index (CCI): 
+## addCCI()  Add Commodity channel index.
+## CCI measures the current price level relative to an average price level over a given period 
+## of time. CCI is relatively high when prices are far above their average. 
+## CCI is relatively low when prices are far below their average. 
+## In this manner, CCI can be used to identify overbought and oversold levels.
+```{r}
+chartSeries(AMZN, subset="2018",theme=whiteTheme)
+addCCI(n = 20, maType="SMA", c=0.015)
+chartSeries(MSFT, subset="2018",theme=whiteTheme)
+addCCI(n = 20, maType="SMA", c=0.015)
+chartSeries(IBM, subset="2018",theme=whiteTheme)
+addCCI(n = 20, maType="SMA", c=0.015)
+```
+
+Directional Movement Indicator (ADX)
+## addADX() Add Directional Movement Indicator
+## Reading directional signals is easy. When the +DMI is dominant and rising, price direction is up. 
+## When the -DMI is dominant and rising, price direction is down. But the strength ## of price 
+## must also be considered. DMI strength ranges from a low of 0 to a high of 100. 
+## The higher the DMI value, the stronger the prices swing. 
+## DMI values over 25 mean price is directionally strong. 
+## DMI values under 25 mean price is directionally weak.
+```{r}
+chartSeries(AMZN, subset="2018",theme=whiteTheme)
+addADX(n = 14, maType="EMA", wilder=TRUE)
+chartSeries(MSFT, subset="2018",theme=whiteTheme)
+addADX(n = 14, maType="EMA", wilder=TRUE)
+chartSeries(IBM, subset="2018",theme=whiteTheme)
+addADX(n = 14, maType="EMA", wilder=TRUE)
+```
+
+Chaikin Money Flow (CMF)
+## addCMF() Add Chaiken Money Flow
+## Chaikin believed that buying and selling pressures could be determined by where a period closes 
+## in relation to its high/low range. If the period closes in the upper half of the range, 
+## then buying pressure is higher and if the period closes in the lower half of the range, 
+## then selling pressure is higher. 
 
 ```{r}
+candleChart(AMZN, up.col = "green", dn.col = "red", theme =whiteTheme, subset = "2018-01/")
+addCMF()
+candleChart(MSFT, up.col = "green", dn.col = "red", theme = whiteTheme, subset = "2018-01/")
+addCMF()
+candleChart(IBM, up.col = "green", dn.col = "red", theme = whiteTheme, subset = "2018-01/")
+addCMF()
+```
+#Get Price Earnings ratio:
+#Compared with Google
+```{r}
+getQuote("AMZN", what = yahooQF("P/E Ratio"))
 getQuote("MSFT", what = yahooQF("P/E Ratio"))
-
+getQuote("IBM", what = yahooQF("P/E Ratio"))
+getQuote("GOOG", what = yahooQF("P/E Ratio"))
 ```
 
-Get Price Earnings Ratio
+#Get Price Earnings Ratio
+#Compared with Google, Apple, Netflix
 
 ```{r}
 require(quantmod)
@@ -270,7 +315,7 @@ what_metrics <- yahooQF(c("Price/Sales",
                           "Dividend Yield", 
                           "Market Capitalization"))
 
-tickers <- c("AAPL", "FB", "GOOG", "HPQ", "IBM", "MSFT", "ORCL", "SAP")
+tickers <- c("AMZN", "MSFT", "IBM" , "GOOG","AAPL","NFLX")
 # Not all the metrics are returned by Yahoo.
 metrics <- getQuote(paste(tickers, sep="", collapse=";"), what=what_metrics)
 
@@ -281,114 +326,10 @@ metrics <- data.frame(Symbol=tickers, metrics[,2:length(metrics)])
 colnames(metrics) <- c("Symbol", "P/E Ratio", "P/E EPS next year", "Div Yield", "Market Cap")
 
 head(metrics,10)
-#Persist this to the csv file
-## write.csv(metrics, "FinancialMetrics.csv", row.names=FALSE)
-```
-
-Use Quandl to get gross domestic product
-```{r}
-
-# install.packages("Quandl")
-library(Quandl)
-# Import GDP data from FRED
-Quandl.api_key("szb8F2ei__rwj7mD3ugt")
-gdp <- Quandl(code = "FRED/GDP")
-
-# Look at the structure of the object returned by Quandl
-
-str(gdp)
-
-head(gdp,20)
-```
-
-
-Download interest rate (DTB3) and GDP (Gross Domestic Product) data from FRED
-DTB3 = 3 month treasury bill
-
-```{r}
-getSymbols('DTB3',src='FRED')
-first(DTB3,'1 week')
-
-getSymbols('GDP',src='FRED') ## quarterly
-first(GDP,'1 week')
-tail(GDP)
-```
-
-```{r}
-chartSeries(DTB3,theme="white",minor.ticks=FALSE)
-```
-
-
-Get data for currency (GBP = British Pound)
-```{r}
-data <- new.env()
-getSymbols("GBP", from="2017-07-01", to="2018-07-01", env = data, auto.assign = T)
-head(data$GBP)
-plot(data$GBP)
-barChart(data$GBP,TA='addSMA(n = 7, col = "red")
-addSMA(n = 44, col = "blue")', subset='2017-07-01/2018-07-01',theme="white",name="GBP")
-```
-
-
-
-Moving averages comparison (SMA) for 20, 50 and 100 trading days.
-
-## The 20-day moving average is the most sensitive to local changes, 
-## and the 200-day moving average the least. 
-## Here, the 200-day moving average indicates an overall bearish trend: 
-## the stock is trending downward over time. 
-##The 20-day moving average is at times bearish and at other times bullish, 
-## where a positive swing is expected. You can also see that the crossing of 
-## moving average lines indicate changes in trend. 
-## These crossings are what we can use as trading signals, 
-## or indications that a financial security is changing direction 
-## and a profitable trade might be made.
-
-
-
-```{r}
-candleChart(GOOG, up.col = "black", dn.col = "red", theme = "white", subset = "2018-01/")
-addSMA(n=c(20,50,100))
 
 ```
 
 
 
-```{r}
-getSymbols("SBUX", from="2018-01-01")
-b <- BBands(HLC=HLC(SBUX["2018"]), n=20, sd=2)
-tail(b,10)
-```
 
-```{r}
-
-chartSeries(SBUX, subset = "2018", theme="white")
-addBBands(draw="p")
-addVo()
-```
-
-Moving Average Convergence-Divergence (MACD)
-
-```{r}
-macd <- MACD( Cl(SBUX), 12, 26, 9, maType="EMA" ) 
-tail(macd)
-chartSeries(SBUX, subset="2018",theme="white")
-addMACD()
-```
-
-Relative Strength Index (RSI)
-
-```{r}
-rsi <- RSI( Cl(SBUX), n = 14 ) 
-tail(rsi)
-chartSeries(SBUX, subset="2018",theme="white")
-addRSI()
-```
-
-
-
-```{r}
-candleChart(GOOG, up.col = "black", dn.col = "red", theme = "white", subset = "2018-01/")
-addCMF()
-```
 
